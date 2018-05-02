@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--分======割======线-->
+<!--1、Spring HelloWorld 实例-->
+<!--2、Spring IoC 容器-->
+<!--2.1、Spring BeanFactory 容器-->
+<!--2.2、Spring ApplicationContext 容器-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+       <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+       <!--xsi:schemaLocation="http://www.springframework.org/schema/beans-->
+       <!--http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">-->
+    <!--<bean id="helloWorld" class="JavaSpring.HelloWorld">-->
+        <!--<property name="message" value="Hello World!"/>-->
+    <!--</bean>-->
+<!--</beans>-->
+
+<!--分======割======线-->
+<!--2.3、Bean 的作用域在scope后替换 (单例Singleton & 原型Prototype)-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+       <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+       <!--xsi:schemaLocation="http://www.springframework.org/schema/beans-->
+       <!--http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">-->
+    <!--<bean id="helloWorld" class="JavaSpring.HelloWorld" scope="prototype">-->
+    <!--</bean>-->
+<!--</beans>-->
+
+<!--分======割======线-->
+<!--2.4、Spring Bean 生命周期-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+       <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+       <!--xsi:schemaLocation="http://www.springframework.org/schema/beans-->
+       <!--http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">-->
+    <!--<bean id="helloWorld" class="JavaSpring.HelloWorld" init-method="init" destroy-method="destroy">-->
+        <!--<property name="message" value="Hello World!"/>-->
+    <!--</bean>-->
+<!--</beans>-->
+
+<!--分======割======线-->
+<!--2.5、Spring Bean 后置处理器-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+       <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+       <!--xsi:schemaLocation="http://www.springframework.org/schema/beans-->
+       <!--http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">-->
+    <!--<bean id="helloWorld" class="JavaSpring.HelloWorld" init-method="init" destroy-method="destroy">-->
+        <!--<property name="message" value="Hello World!"/>-->
+    <!--</bean>-->
+    <!--<bean class="JavaSpring.InitHelloWorld"/>-->
+<!--</beans>-->
+
+<!--分======割======线-->
+<!--2.6、Spring Bean 定义继承-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+       <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+       <!--xsi:schemaLocation="http://www.springframework.org/schema/beans-->
+       <!--http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">-->
+    <!--<bean id="helloWorld" class="JavaSpring.HelloWorld">-->
+        <!--<property name="message1" value="Hello World!"/>-->
+        <!--<property name="message2" value="Hello Second World!"/>-->
+    <!--</bean>-->
+    <!--<bean id="helloChina" class="JavaSpring.HelloChina" parent="helloWorld">-->
+        <!--<property name="message1" value="Hello China!"/>-->
+        <!--<property name="message3" value="Hello Chinese!"/>-->
+    <!--</bean>-->
+<!--</beans>-->
+
+<!--分======割======线-->
+<!--3、Spring 依赖注入-->
+<!--3.1、Spring 基于构造函数的依赖注入-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+       <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+       <!--xsi:schemaLocation="http://www.springframework.org/schema/beans-->
+       <!--http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">-->
+    <!--<bean id="textEditor" class="JavaSpring.TextEditor">-->
+        <!--<constructor-arg ref="spellChecker"/>-->
+    <!--</bean>-->
+    <!--<bean id="spellChecker" class="JavaSpring.SpellChecker">-->
+    <!--</bean>-->
+<!--</beans>-->
+
+<!--分======割======线-->
+<!--3.2、Spring 基于设值函数的依赖注入-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+       <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+       <!--xsi:schemaLocation="http://www.springframework.org/schema/beans-->
+       <!--http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">-->
+    <!--<bean id="textEditor" class="JavaSpring.TextEditor">-->
+        <!--<property name="spellChecker" ref="spellChecker"/>-->
+    <!--</bean>-->
+    <!--<bean id="spellChecker" class="JavaSpring.SpellChecker">-->
+    <!--</bean>-->
+<!--</beans>-->
+
+<!--分======割======线-->
+<!--3.3、Spring 注入内部 Beans-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+       <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+       <!--xsi:schemaLocation="http://www.springframework.org/schema/beans-->
+       <!--http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">-->
+    <!--<bean id="textEditor" class="JavaSpring.TextEditor">-->
+        <!--<property name="spellChecker">-->
+            <!--<bean id="spellChecker" class="JavaSpring.SpellChecker"/>-->
+        <!--</property>-->
+    <!--</bean>-->
+<!--</beans>-->
+
+<!--分======割======线-->
+<!--3.4、Spring 注入集合-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+       <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+       <!--xsi:schemaLocation="http://www.springframework.org/schema/beans-->
+       <!--http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">-->
+    <!--<bean id="javaCollection" class="JavaSpring.JavaCollection">-->
+        <!--<property name="addressList">-->
+            <!--<list>-->
+                <!--<value>INDIA</value>-->
+                <!--<value>Pakistan</value>-->
+                <!--<value>USA</value>-->
+                <!--<value>USA</value>-->
+            <!--</list>-->
+        <!--</property>-->
+        <!--<property name="addressSet">-->
+            <!--<set>-->
+                <!--<value>INDIA</value>-->
+                <!--<value>Pakistan</value>-->
+                <!--<value>USA</value>-->
+                <!--<value>USA</value>-->
+            <!--</set>-->
+        <!--</property>-->
+        <!--<property name="addressMap">-->
+            <!--<map>-->
+                <!--<entry key="1" value="INDIA"/>-->
+                <!--<entry key="2" value="Pakistan"/>-->
+                <!--<entry key="3" value="USA"/>-->
+                <!--<entry key="4" value="USA"/>-->
+            <!--</map>-->
+        <!--</property>-->
+        <!--<property name="addressProp">-->
+            <!--<props>-->
+                <!--<prop key="one">INDIA</prop>-->
+                <!--<prop key="two">Pakistan</prop>-->
+                <!--<prop key="three">USA</prop>-->
+                <!--<prop key="four">USA</prop>-->
+            <!--</props>-->
+        <!--</property>-->
+    <!--</bean>-->
+<!--</beans>-->
+
+<!--分======割======线-->
+<!--4、Spring Beans 自动装配-->
+<!--4.1、Spring 自动装配 'byName'-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+       <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+       <!--xsi:schemaLocation="http://www.springframework.org/schema/beans-->
+       <!--http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">-->
+    <!--<bean id="textEditor" class="JavaSpring.TextEditor" autowire="byName">-->
+        <!--<property name="name" value="Generic Text Editor" />-->
+    <!--</bean>-->
+    <!--<bean id="spellChecker" class="JavaSpring.SpellChecker">-->
+    <!--</bean>-->
+<!--</beans>-->
+
+<!--分======割======线-->
+<!--4.2、Spring 自动装配 'byType'-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+       <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+       <!--xsi:schemaLocation="http://www.springframework.org/schema/beans-->
+       <!--http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">-->
+    <!--<bean id="textEditor" class="JavaSpring.TextEditor" autowire="byType">-->
+        <!--<property name="name" value="Generic Text Editor" />-->
+    <!--</bean>-->
+    <!--<bean id="SpellChecker" class="JavaSpring.SpellChecker">-->
+    <!--</bean>-->
+<!--</beans>-->
+
+<!--分======割======线-->
+<!--4.3、Spring 由构造函数自动装配-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+       <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+       <!--xsi:schemaLocation="http://www.springframework.org/schema/beans-->
+       <!--http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">-->
+    <!--<bean id="textEditor" class="JavaSpring.TextEditor" autowire="constructor">-->
+        <!--<constructor-arg value="Generic Text Editor"/>-->
+    <!--</bean>-->
+    <!--<bean id="SpellChecker" class="JavaSpring.SpellChecker">-->
+    <!--</bean>-->
+<!--</beans>-->
+
+<!--分======割======线-->
+<!--5、Spring 基于注解的配置-->
+<!--5.1、Spring @Required 注释-->
+<!--5.2.3、@Autowired 的（required=false）选项-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+       <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+       <!--xmlns:context="http://www.springframework.org/schema/context"-->
+       <!--xsi:schemaLocation="http://www.springframework.org/schema/beans-->
+       <!--http://www.springframework.org/schema/beans/spring-beans-3.0.xsd-->
+       <!--http://www.springframework.org/schema/context-->
+       <!--http://www.springframework.org/schema/context/spring-context-3.0.xsd">-->
+    <!--<context:annotation-config/>-->
+    <!--<bean id="student" class="Annotations.Student">-->
+        <!--<property name="name"  value="Zara" />-->
+        <!--<property name="age"  value="11"/>-->
+    <!--</bean>-->
+<!--</beans>-->
+
+<!--分======割======线-->
+<!--5.2、Spring @Autowired 注释-->
+<!--5.2.1、属性中的 @Autowired-->
+<!--5.2.2、构造函数中的 @Autowired-->
+<!--5.4.2、@Resource 注释-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+       <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+       <!--xmlns:context="http://www.springframework.org/schema/context"-->
+       <!--xsi:schemaLocation="http://www.springframework.org/schema/beans-->
+       <!--http://www.springframework.org/schema/beans/spring-beans-3.0.xsd-->
+       <!--http://www.springframework.org/schema/context-->
+       <!--http://www.springframework.org/schema/context/spring-context-3.0.xsd">-->
+    <!--<context:annotation-config/>-->
+    <!--<bean id="textEditor" class="Annotations.TextEditor">-->
+    <!--</bean>-->
+    <!--<bean id="spellChecker" class="Annotations.SpellChecker">-->
+    <!--</bean>-->
+<!--</beans>-->
+
+<!--分======割======线-->
+<!--5.3、Spring @Qualifier 注释-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+       <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+       <!--xmlns:context="http://www.springframework.org/schema/context"-->
+       <!--xsi:schemaLocation="http://www.springframework.org/schema/beans-->
+       <!--http://www.springframework.org/schema/beans/spring-beans-3.0.xsd-->
+       <!--http://www.springframework.org/schema/context-->
+       <!--http://www.springframework.org/schema/context/spring-context-3.0.xsd">-->
+    <!--<context:annotation-config/>-->
+    <!--<bean id="profile" class="Annotations.Profile">-->
+    <!--</bean>-->
+    <!--<bean id="student1" class="Annotations.Student">-->
+        <!--<property name="name"  value="Zara" />-->
+        <!--<property name="age"  value="11"/>-->
+    <!--</bean>-->
+    <!--<bean id="student2" class="Annotations.Student">-->
+        <!--<property name="name"  value="Nuha" />-->
+        <!--<property name="age"  value="2"/>-->
+    <!--</bean>-->
+<!--</beans>-->
+
+<!--分======割======线-->
+<!--5.4、Spring JSR-250 注释-->
+<!--5.4.1、@PostConstruct 和 @PreDestroy 注释-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+       <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+       <!--xmlns:context="http://www.springframework.org/schema/context"-->
+       <!--xsi:schemaLocation="http://www.springframework.org/schema/beans-->
+       <!--http://www.springframework.org/schema/beans/spring-beans-3.0.xsd-->
+       <!--http://www.springframework.org/schema/context-->
+       <!--http://www.springframework.org/schema/context/spring-context-3.0.xsd">-->
+    <!--<context:annotation-config/>-->
+    <!--<bean id="helloWorld" class="Annotations.HelloWorld" init-method="init" destroy-method="destroy">-->
+        <!--<property name="message" value="Hello World!"/>-->
+    <!--</bean>-->
+<!--</beans>-->
+
+<!--分======割======线-->
+<!--5.6、Spring 中的事件处理-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+       <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+       <!--xsi:schemaLocation="http://www.springframework.org/schema/beans-->
+       <!--http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">-->
+    <!--<bean id="helloWorld" class="Annotations.HelloWorld">-->
+        <!--<property name="message" value="Hello World!"/>-->
+    <!--</bean>-->
+    <!--<bean id="cStartEventHandler"-->
+          <!--class="Annotations.CStartEventHandler"/>-->
+    <!--<bean id="cStopEventHandler"-->
+          <!--class="Annotations.CStopEventHandler"/>-->
+<!--</beans>-->
+
+<!--分======割======线-->
+<!--5.7、Spring 中的自定义事件-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+       <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+       <!--xsi:schemaLocation="http://www.springframework.org/schema/beans-->
+       <!--http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">-->
+    <!--<bean id="customEventHandler" class="Annotations.CustomEventHandler"/>-->
+    <!--<bean id="customEventPublisher" class="Annotations.CustomEventPublisher"/>-->
+<!--</beans>-->
+
+<!--分======割======线-->
+<!--6、Spring 框架的 AOP-->
+<!--6.1、Spring 中基于 AOP 的 XML架构-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+       <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+       <!--xmlns:aop="http://www.springframework.org/schema/aop"-->
+       <!--xsi:schemaLocation="http://www.springframework.org/schema/beans-->
+       <!--http://www.springframework.org/schema/beans/spring-beans-3.0.xsd-->
+       <!--http://www.springframework.org/schema/aop-->
+       <!--http://www.springframework.org/schema/aop/spring-aop-3.0.xsd ">-->
+    <!--<aop:config>-->
+        <!--<aop:aspect id="log" ref="logging">-->
+            <!--<aop:pointcut id="selectAll" expression="execution(* Annotations.*.*(..))"/>-->
+            <!--<aop:before pointcut-ref="selectAll" method="beforeAdvice"/>-->
+            <!--<aop:after pointcut-ref="selectAll" method="afterAdvice"/>-->
+            <!--<aop:after-returning pointcut-ref="selectAll"-->
+                                 <!--returning="retVal"-->
+                                 <!--method="afterReturningAdvice"/>-->
+            <!--<aop:after-throwing pointcut-ref="selectAll"-->
+                                <!--throwing="ex"-->
+                                <!--method="AfterThrowingAdvice"/>-->
+        <!--</aop:aspect>-->
+    <!--</aop:config>-->
+    <!--<bean id="student" class="Annotations.Student">-->
+        <!--<property name="name"  value="Zara" />-->
+        <!--<property name="age"  value="11"/>-->
+    <!--</bean>-->
+    <!--<bean id="logging" class="Annotations.Logging"/>-->
+<!--</beans>-->
+
+<!--分======割======线-->
+<!--6.2、Spring 中基于 AOP 的 @AspectJ-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+       <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+       <!--xmlns:aop="http://www.springframework.org/schema/aop"-->
+       <!--xsi:schemaLocation="http://www.springframework.org/schema/beans-->
+       <!--http://www.springframework.org/schema/beans/spring-beans-3.0.xsd-->
+       <!--http://www.springframework.org/schema/aop-->
+       <!--http://www.springframework.org/schema/aop/spring-aop-3.0.xsd ">-->
+    <!--<aop:aspectj-autoproxy/>-->
+    <!--<bean id="student" class="Annotations.Student">-->
+        <!--<property name="name"  value="Zara" />-->
+        <!--<property name="age"  value="11"/>-->
+    <!--</bean>-->
+    <!--<bean id="logging" class="Annotations.Logging"/>-->
+<!--</beans>-->
+
+<!--分======割======线-->
+<!--7、 Spring JDBC 框架-->
+<!--7.1、Spring JDBC 示例-->
+<!--7.2、Spring 中 SQL 的存储过程 (按照例子未成功)-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+       <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+       <!--xsi:schemaLocation="http://www.springframework.org/schema/beans-->
+       <!--http://www.springframework.org/schema/beans/spring-beans-3.0.xsd ">-->
+    <!--<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
+        <!--<property name="driverClassName" value="com.mysql.jdbc.Driver"/>-->
+        <!--<property name="url" value="jdbc:mysql://localhost:3306/JavaSpring?useSSL=true"/>-->
+        <!--<property name="username" value="root"/>-->
+        <!--<property name="password" value="123456"/>-->
+    <!--</bean>-->
+    <!--<bean id="studentJDBCTemplate" class="SpringJDBC.StudentJDBCTemplate">-->
+        <!--<property name="dataSource" ref="dataSource" />-->
+    <!--</bean>-->
+<!--</beans>-->
+
+<!--分======割======线-->
+<!--8、Spring 事务管理-->
+<!--8.1、Spring 编程式事务管理-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+       <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+       <!--xsi:schemaLocation="http://www.springframework.org/schema/beans-->
+       <!--http://www.springframework.org/schema/beans/spring-beans-3.0.xsd ">-->
+    <!--<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
+        <!--<property name="driverClassName" value="com.mysql.jdbc.Driver"/>-->
+        <!--<property name="url" value="jdbc:mysql://localhost:3306/JavaSpring?useSSL=true"/>-->
+        <!--<property name="username" value="root"/>-->
+        <!--<property name="password" value="123456"/>-->
+    <!--</bean>-->
+    <!--<bean id="transactionManager"-->
+          <!--class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
+        <!--<property name="dataSource" ref="dataSource" />-->
+    <!--</bean>-->
+    <!--<bean id="studentJDBCTemplate" class="SpringJDBC.StudentJDBCTemplate">-->
+        <!--<property name="dataSource"  ref="dataSource" />-->
+        <!--<property name="transactionManager"  ref="transactionManager" />-->
+    <!--</bean>-->
+<!--</beans>-->
+
+<!--分======割======线-->
+<!--8.2、Spring 声明式事务管理-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/JavaSpring?useSSL=true"/>
+        <property name="username" value="root"/>
+        <property name="password" value="123456"/>
+    </bean>
+    <tx:advice id="txAdvice"  transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="create"/>
+        </tx:attributes>
+    </tx:advice>
+    <aop:config>
+        <aop:pointcut id="createOperation"
+                      expression="execution(* SpringJDBC.StudentJDBCTemplate.create(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="createOperation"/>
+    </aop:config>
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+    <bean id="studentJDBCTemplate" class="SpringJDBC.StudentJDBCTemplate">
+        <property name="dataSource"  ref="dataSource" />
+    </bean>
+</beans>
